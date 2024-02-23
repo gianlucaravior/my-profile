@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ravcloud:build:production"
+              "buildTarget": "ravcloud:build:production"
             },
             "development": {
-              "browserTarget": "ravcloud:build:development"
+              "buildTarget": "ravcloud:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ravcloud:build"
+            "buildTarget": "ravcloud:build"
           }
         },
         "test": {
