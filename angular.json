@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ravcloud",
+            "outputPath": "dist/ravcloud/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -97,6 +97,59 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/ravcloud/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "ravcloud:build:development",
+              "serverTarget": "ravcloud:server:development"
+            },
+            "production": {
+              "browserTarget": "ravcloud:build:production",
+              "serverTarget": "ravcloud:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routesFile": "routes.txt"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ravcloud:build:production",
+              "serverTarget": "ravcloud:server:production"
+            },
+            "development": {
+              "browserTarget": "ravcloud:build:development",
+              "serverTarget": "ravcloud:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
