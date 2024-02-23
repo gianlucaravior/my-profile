@@ -1,0 +1,51 @@
+@keyframes slideLeft {
+    0% {
+      transform: translateX(1rem);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateX(0rem);
+      opacity: 1;
+    }
+  
+    0% {
+      transform: translateX(1rem);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes animatePath {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+    0% {
+      opacity: 0;
+    }
+  }
+  
+  @-webkit-keyframes slideLeft {
+    0% {
+      -webkit-transform: transform;
+      -webkit-opacity: 0;
+    }
+  
+    100% {
+      -webkit-transform: translateX(0);
+      -webkit-opacity: 1;
+    }
+  
+    0% {
+      -webkit-transform: translateX(1rem);
+      -webkit-opacity: 0;
+    }
+  }

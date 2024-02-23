@@ -1,0 +1,710 @@
+$gray-900: #000;
+$primary: #ec3f75;
+$primary-gradient: linear-gradient(45deg, #ec3f75 0%, #685ECF 100%);
+$body-secondary-color: #9C9CA5;
+$link-hover-color: #fff;
+$btn-border-width: 0;
+$btn-font-size: 1rem;
+$nav-link-font-size: 3rem;
+$headings-color: #fff;
+$card-title-spacer-y: 0;
+$card-spacer-x: 2rem;
+$card-spacer-y: 1.5rem;
+
+.primary-gradient-btn {
+  background: $primary-gradient;
+  --bs-btn-font-size: .9rem !important;
+  --bs-btn-padding-y: .75rem !important;
+  --bs-btn-padding-x: 2rem !important;
+  color: $color-white;
+  position: relative;
+  outline: none;
+  overflow: hidden;
+  text-transform: uppercase;
+
+  &::before {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    transition: background-color .2s ease !important;
+  }
+
+  &::after {
+    --size: 0;
+    content: '';
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: var(--size);
+    height: var(--size);
+    background: radial-gradient(circle closest-side, #ec3f75, transparent);
+    transform: translate(-50%, -50%);
+    transition: width .2s ease, height .2s ease;
+  }
+
+  &:hover::before {
+    background-color: #685ECF;
+  }
+
+  &:hover::after{
+    --size: 200px;
+  }
+
+  span {
+    position: relative;
+    z-index: 5;
+  }
+}
+
+a.disabled {
+  cursor: not-allowed;
+  color: var(--bs-secondary-color);
+  pointer-events: none;
+  text-decoration: none;
+}
+
+a.external {
+  .arrow-icon {
+    position: relative;
+    top: -2px;
+    left: 5px;
+    vertical-align: middle;
+    overflow: visible;
+    fill: $primary;
+    padding-right: 2rem;
+  }
+
+  .arrow-icon2 {
+    -webkit-transition: -webkit-transform 0.3s ease;
+    transition: -webkit-transform 0.2s ease;
+    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, -webkit-transform 0.2s ease;
+  }
+
+  &:hover {
+    .arrow-icon2 {
+      transform: translate3d(4px, -4px, 0);
+    }
+  }
+}
+
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  @media (min-width: map-get($grid-breakpoints, "md")) {
+    height: 80vh;
+    row-gap: 4vh;
+  }
+  @media (max-width: map-get($grid-breakpoints, "md")) {
+    height: 60vh;
+    row-gap: 7vh;
+    padding-top: 77px;
+  }
+
+  .about {
+    text-align: center;
+    color: #fff;
+    padding: 1rem 0 3rem 0;
+
+    &__heading {
+      font-size: 6rem;
+
+      .textrotate span {
+        transition: opacity 1s ease-in-out;
+      }
+    }
+
+    @media (max-width: map-get($grid-breakpoints, "md")) {
+      padding: 1rem 0 1rem 0;
+
+      &__heading {
+        font-size: 3rem;
+      }
+    }
+  }
+}
+
+.main {
+  text-align: center;
+  color: #fff;
+  padding: 5rem 0 3rem 0;
+
+  &__heading {
+    font-size: 6rem;
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "md")) {
+    padding: 4rem 0 2rem 0;
+
+    &__heading {
+      font-size: 3rem;
+    }
+  }
+}
+
+div.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: $backdrop-blur;
+  backdrop-filter: $backdrop-blur;
+  border: solid 0.1rem rgba(232,231,230,.1);
+  border-radius: 1rem;
+
+  .card-body {
+    padding: 1rem;
+
+    .card-title {
+      font-size: 3rem;
+      @media (max-width: map-get($grid-breakpoints, "lg")) {
+        font-size: 2.5rem;
+      }
+    }
+
+    .card-subtitle {
+      color: #9ba9b6 !important;
+      font-size: 1rem;
+    }
+
+    .card-text {
+      font-size: .8rem;
+
+      &__list > .svg-inline--fa {
+        margin: 0 .5rem 0 0;
+      }
+
+    }
+  }
+}
+
+app-home .ablauf {
+  div {
+    border-bottom-right-radius: 165px;
+    border-top-right-radius: 0;
+    margin-left: -10%;
+    margin-right: 10%;
+    margin-top: -20%;
+    overflow: hidden;
+
+    @media (max-width: map-get($grid-breakpoints, "lg")) {
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 70px;
+    }
+
+    svg {
+      margin-top: -335px;
+
+      @media (max-width: map-get($grid-breakpoints, "xxl")) {
+        margin-top: -286px;
+
+        @media (max-width: map-get($grid-breakpoints, "xl")) {
+          margin-top: -239px;
+
+          @media (max-width: map-get($grid-breakpoints, "lg")) {
+            margin-top: -445px;
+
+            @media (max-width: map-get($grid-breakpoints, "md")) {
+              margin-top: -328px;
+
+              @media (max-width: map-get($grid-breakpoints, "sm")) {
+                margin-top: -62%;
+              }
+            }
+          }
+        }
+      }
+      width: 100%;
+      height: 100%;
+
+      .devscroll {
+        //transform: translatey(1488px);
+
+        &--lines > path {
+          stroke-dasharray: 1000;
+          stroke-dashoffset: 1000;
+          animation-duration: 10s, 1s;
+          animation-name: animatePath, fadeIn;
+          animation-fill-mode: both, both;
+        }
+        @for $i from 1 through 70 {
+          &--lines > path:nth-child(#{$i}n) {
+            animation-delay: #{$i * 0.1}s;
+          }
+        }
+      }
+      $ablaufdelay: 0.2;
+      .projektablauf {
+        g {
+          animation-duration: 2s;
+          animation-name: fadeIn;
+          animation-fill-mode: both;
+        }
+        @for $i from 1 through 14 {
+          g:nth-child(#{$i}n) {
+            animation-delay: #{$i * $ablaufdelay}s;
+          }
+        }
+      }
+      g.ablaufoverlay {
+        animation-duration: 2s;
+        animation-name: fadeInOpacityOverlay;
+        animation-fill-mode: both;
+        animation-delay: #{11 * $ablaufdelay}s;
+      }
+
+      @keyframes fadeInOpacityOverlay {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: .14;
+        }
+        0% {
+          opacity: 0;
+        }
+      }
+    }
+  }
+}
+
+app-home div.skills {
+  position: relative;
+  top: -5rem;
+  @media (max-width: map-get($grid-breakpoints, "lg")) {
+    top: -2rem;
+  }
+  color: transparentize(#fff, .4) !important;
+  font-size: 4rem;
+  overflow: visible;
+  text-wrap: nowrap;
+
+  &__heading {
+    left: -5rem;
+    top: 0;
+    color: #fff;
+    font-size: 10rem;
+  }
+
+  &__ecommerce {
+    top: -4rem;
+    text-align: right;
+    padding-right: clamp(0px, 20%, 100px);
+  }
+
+  &__php {
+    left: -3rem;
+    top: -6.5rem;
+    padding-right: clamp(0px, 20%, 100px);
+  }
+
+  &__json {
+    left: 3rem;
+    top: -9rem;
+    text-align: right;
+    padding-right: clamp(0px, 20%, 100px);
+  }
+
+  &__confluence {
+    top: -12rem;
+    left: -14rem;
+    padding-right: clamp(0px, 20%, 100px);
+  }
+
+  & > * {
+    position: relative;
+    pointer-events: none;
+  }
+
+  & > * span {
+    transition: color .25s ease-in-out;
+    pointer-events: auto;
+
+    a {
+      color: unset;
+
+      &:hover {
+        color: unset;
+      }
+    }
+  }
+
+  & > * span:hover {
+    color: #fff
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "lg")) {
+    top: 2rem;
+
+    &__heading {
+      font-size: 8rem;
+    }
+
+    &__json {
+      left: -5rem;
+      top: -8.5rem;
+    }
+
+    &__confluence {
+      top: -11rem;
+      left: -17rem;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "md")) {
+    top: 5rem;
+
+    &__heading {
+      left: 0;
+      top: 0;
+      font-size: 6rem;
+    }
+
+    &__ecommerce {
+      top: -2rem;
+      font-size: 2.5rem;
+    }
+
+    &__php {
+      left: 0;
+      top: -3.5rem;
+      font-size: 2.5rem;
+    }
+
+    &__json {
+      left: 2rem;
+      top: -4.5rem;
+      font-size: 2.5rem;
+    }
+
+    &__confluence {
+      top: -5.5rem;
+      left: 0;
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "sm")) {
+    top: 5rem;
+
+    &__heading {
+      font-size: 3rem;
+      padding-bottom: .5rem;
+    }
+
+    &__ecommerce {
+      top: -1.25rem;
+      font-size: 2rem;
+    }
+
+    &__php {
+      left: 0;
+      top: -2.25rem;
+      font-size: 2rem;
+    }
+
+    &__json {
+      left: 2rem;
+      top: -3rem;
+      font-size: 2rem;
+    }
+
+    &__confluence {
+      top: -4.25rem;
+      left: 0;
+      font-size: 2rem;
+    }
+  }
+}
+
+.about-me div.skills {
+  position: relative;
+  top: -5rem;
+  color: transparentize(#fff, .4) !important;
+  font-size: 4rem;
+  overflow: visible;
+  text-wrap: nowrap;
+
+  &__heading {
+    left: -5rem;
+    top: 0;
+    color: #fff;
+    font-size: 10rem;
+  }
+
+  &__ecommerce {
+    top: -4.5rem;
+    text-align: right;
+    padding-right: clamp(0px, 20%, 100px);
+  }
+
+  &__php {
+    left: -3rem;
+    top: -6.25rem;
+    padding-right: clamp(0px, 20%, 100px);
+  }
+
+  &__json {
+    left: -7rem;
+    top: -12rem;
+    text-align: right;
+    padding-right: clamp(0px, 20%, 100px);
+  }
+
+  &__confluence {
+    top: -14rem;
+    padding-right: clamp(0px, 20%, 100px);
+  }
+
+  & > * {
+    position: relative;
+    pointer-events: none;
+  }
+
+  & > * span {
+    transition: color .25s ease-in-out;
+    pointer-events: auto;
+  }
+
+  & > * span:hover {
+    color: #fff
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "lg")) {
+    &__json {
+      left: 0;
+      top: -12.5rem;
+    }
+
+    &__confluence {
+      top: -15rem;
+      left: -3rem;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "md")) {
+    top: 3rem;
+
+    &__heading {
+      left: 0;
+      top: 0;
+      font-size: 6rem;
+    }
+
+    &__ecommerce {
+      top: -2rem;
+      font-size: 2.5rem;
+    }
+
+    &__php {
+      left: 0;
+      top: -3.5rem;
+      font-size: 2.5rem;
+    }
+
+    &__json {
+      left: -3rem;
+      top: -6.5rem;
+      font-size: 2.5rem;
+    }
+
+    &__confluence {
+      top: -8rem;
+      left: 0;
+      font-size: 2.5rem;
+    }
+  }
+}
+
+.referenzen {
+  --bs-gutter-x: 6rem !important;
+  position: relative;
+  top: -15rem;
+
+  &__heading {
+    left: 0;
+    top: 0;
+    color: #fff;
+    font-size: 10rem;
+  }
+
+  &__block {
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__image {
+      width: auto;
+      max-width: 100%;
+      height: 45px;
+      vertical-align: middle;
+      display: inline-block;
+      margin-bottom: 24px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        vertical-align: middle;
+        display: inline-block;
+
+        &.smaller {
+          width: 75%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "lg")) {
+    top: -1.5rem;
+    --bs-gutter-x: 4.5rem !important;
+
+    &__heading {
+      font-size: 8rem;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "md")) {
+    top: 3rem;
+
+    &__heading {
+      font-size: 6rem;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "sm")) {
+    top: 6rem;
+
+    &__heading {
+      font-size: 3rem;
+      padding-bottom: .5rem;
+    }
+
+    &__block {
+      padding-bottom: 5rem;
+    }
+  }
+}
+
+div.bildung {
+  position: relative;
+  top: -20rem;
+
+  &__heading {
+    left: 0;
+    top: 0;
+    color: #fff;
+    font-size: 10rem;
+  }
+
+  .card {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: $backdrop-blur;
+    backdrop-filter: $backdrop-blur;
+    border: solid 0.1rem rgba(232,231,230,.1);
+    border-radius: 1rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+
+    .card-title {
+      font-size: 1.5rem;
+    }
+
+    .card-subtitle {
+      color: #9ba9b6 !important;
+      font-size: 1rem;
+    }
+
+    .card-text {
+      color: #fff;
+      font-size: .9rem;
+      padding-top: 1rem;
+
+      ul {
+        padding-left: 0;
+      }
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "md")) {
+    top: -2rem;
+
+    &__heading {
+      font-size: 6rem;
+    }
+  }
+}
+
+div.berufserfahrung {
+  position: relative;
+  top: -18rem;
+
+  &__heading {
+    left: 0;
+    top: 0;
+    font-size: 10rem;
+    line-height: .9;
+    color: #fff;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: $backdrop-blur;
+    backdrop-filter: $backdrop-blur;
+    border: solid 0.1rem rgba(232,231,230,.1);
+    border-radius: 1rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+
+    .card-title {
+      font-size: 1.5rem;
+    }
+
+    .card-subtitle {
+      color: #9ba9b6 !important;
+      font-size: 1rem;
+    }
+
+    .card-text {
+      color: #fff;
+      font-size: .9rem;
+      padding-top: 1rem;
+
+      ul {
+        padding-left: 0;
+      }
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, "md")) {
+    top: -2rem;
+
+    &__heading {
+      font-size: 6rem;
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}

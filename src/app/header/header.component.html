@@ -1,0 +1,24 @@
+<nav #toggleableNavbar [class.show]="showNavbar" class="navbar navbar-dark fixed-top" aria-label="Navigation" id="collapseableNavbar">
+    <div class="top-bar container-fluid">
+        <a class="navbar-brand" (click)="closeNavbar()" routerLink="">RAV MEDIA</a>
+        <button (click)="toggleNavbar()" id="burgerToggle" class="navbar-toggler" type="button" data-bs-toggle="collapse" aria-label="Navigation ansehen">
+            <span class="line-1"></span>
+            <span class="line-2"></span>
+            <span class="line-3"></span>
+        </button>
+    </div>
+
+    <div class="navbar-collapse">
+        <ul class="navbar-nav container">
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeNavbar()" routerLink="">Startseite</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" (click)="closeNavbar()" routerLink="/skills">Skills & Services</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLinkActive="active" (click)="closeNavbar()" routerLink="/kontakt">Kontakt</a>
+            </li>
+        </ul>
+    </div>
+</nav>

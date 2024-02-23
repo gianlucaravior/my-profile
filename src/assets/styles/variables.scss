@@ -1,0 +1,12 @@
+$backdrop-blur: saturate(180%) blur(20px);
+$main-bg: #080820;
+$color-white: #fff;
+$color-black: #000;
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px,
+        xxl: 1400px
+);
