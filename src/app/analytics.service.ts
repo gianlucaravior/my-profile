@@ -9,6 +9,6 @@ export class AnalyticsService {
 
   updateConsent(consent: boolean): void {
     setAnalyticsCollectionEnabled(this.analytics, consent);
-    console.log('Analytics collection is now', consent ? 'enabled' : 'disabled')
+    console.log('Analytics collection is', consent ? 'allowed' : 'disallowed')
   }
 }

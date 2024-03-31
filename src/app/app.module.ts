@@ -14,11 +14,12 @@ import { DatenschutzComponent } from './datenschutz/datenschutz.component';
 import { ImpressumComponent } from './impressum/impressum.component';
 import { StoreModule } from '@ngrx/store';
 
-import {getAnalytics, provideAnalytics, ScreenTrackingService} from '@angular/fire/analytics';
+import { getAnalytics, provideAnalytics, ScreenTrackingService } from '@angular/fire/analytics';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getPerformance, providePerformance } from '@angular/fire/performance';
 
-import {NgcCookieConsentModule} from 'ngx-cookieconsent';
+import { CookieService } from 'ngx-cookie-service';
+import { NgcCookieConsentModule } from 'ngx-cookieconsent';
 
 const cookieConfig:NgcCookieConsentModule = {
   "cookie": {
@@ -78,7 +79,8 @@ const cookieConfig:NgcCookieConsentModule = {
   ],
   providers: [
     provideClientHydration(),
-    ScreenTrackingService
+    ScreenTrackingService,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })

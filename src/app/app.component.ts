@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AnalyticsService } from './analytics.service';
+import { CookieService } from 'ngx-cookie-service';
 import { NgcCookieConsentService } from 'ngx-cookieconsent';
-import { Subscription }   from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,25 +22,30 @@ export class AppComponent implements OnInit, OnDestroy {
   private noCookieLawSubscription!: Subscription;
 
   constructor(private analyticsService: AnalyticsService,
-    private ccService: NgcCookieConsentService) { }
+    private ccService: NgcCookieConsentService,
+    private cookieService: CookieService) { }
 
   title = 'ravcloud';
 
   ngOnInit(): void {
-    this.analyticsService.updateConsent(false);
+    this.changeConsent(this.cookieService.get('cookieconsent_status'));
     this.statusChangeSubscription = this.ccService.statusChange$.subscribe(
       (e) => {
-        switch(e.status) { 
-          case "allow": {
-            this.analyticsService.updateConsent(true);
-             break; 
-          }
-          default: { 
-            this.analyticsService.updateConsent(false);
-             break; 
-          } 
-       }
+        this.changeConsent(e.status);
       });
+  }
+
+  changeConsent(consent: string): void {
+    switch(consent) { 
+      case "allow": {
+        this.analyticsService.updateConsent(true);
+         break; 
+      }
+      default: { 
+        this.analyticsService.updateConsent(false);
+         break; 
+      } 
+   }
   }
 
   ngOnDestroy() {
