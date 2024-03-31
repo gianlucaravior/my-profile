@@ -46,7 +46,7 @@ const cookieConfig:NgcCookieConsentModule = {
   },
   "type": "opt-in",
   "content": {
-    "message": "Wir und unsere Marketingpartner verwenden Cookies, um Anzeigen zu personalisieren und ihre Wirksamkeit zu messen. Unsere Partner können auch Daten durch Cookies sammeln. Wenn Sie auf den Button \"Einstellungen\" klicken, erfahren Sie mehr über die Arten von Cookies, die wir verwenden, und können deren Verwendung steuern. Bitte beachten Sie, dass nicht-essentielle Cookies Ihre ausdrückliche Zustimmung erfordern, bevor sie verwendet werden können.",
+    "message": "Wir und unsere Marketingpartner verwenden Cookies, um Anzeigen zu personalisieren und ihre Wirksamkeit zu messen. Unsere Partner können auch Daten durch Cookies sammeln. Wenn Sie auf den Button \"Ablehnen\" klicken, lehnen Sie die Verwendung ab. Bitte beachten Sie, dass nicht-essentielle Cookies Ihre Zustimmung erfordern, um die Verwendung dieser Seite zu gewährleisten.",
     "dismiss": "Got it!",
     "deny": "Ablehnen",
     "link": "Mehr erfahren",
