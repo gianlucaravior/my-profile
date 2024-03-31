@@ -1,6 +1,7 @@
 {
   "hosting": [
     {
+      "target": "ravcloud",
       "public": "dist/ravcloud/browser",
       "ignore": [
         "firebase.json",
