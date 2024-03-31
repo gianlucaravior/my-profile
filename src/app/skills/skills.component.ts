@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { createPopup } from "@typeform/embed";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 @Component({
   selector: 'app-skills',
@@ -9,6 +10,23 @@ import { createPopup } from "@typeform/embed";
 })
 export class SkillsComponent {
   openTypeform() {
-    createPopup("MVw1EbOi", { size: 90 }).open(); // call open() on created popup
+    createPopup("MVw1EbOi", { 
+      size: 90,
+      onReady: () => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'form_start', {
+          form_name: 'contact',
+          form_destination: 'app-skills'
+        });
+      },
+      onSubmit: () => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'form_submit', {
+          form_name: 'contact',
+          form_destination: 'app-skills',
+          form_submit_text: 'submit'
+        });
+      }
+    }).open(); // call open() on created popup
   }
 }

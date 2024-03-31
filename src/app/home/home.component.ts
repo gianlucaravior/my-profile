@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild, HostListener } from '@angular
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 import { createPopup } from "@typeform/embed";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 @Component({
   selector: 'app-home',
@@ -39,7 +40,24 @@ export class HomeComponent {
   }
 
   openTypeform() {
-    createPopup("MVw1EbOi", { size: 90 }).open(); // call open() on created popup
+    createPopup("MVw1EbOi", { 
+      size: 90,
+      onReady: () => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'form_start', {
+          form_name: 'contact',
+          form_destination: 'app-home'
+        });
+      },
+      onSubmit: () => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'form_submit', {
+          form_name: 'contact',
+          form_destination: 'app-home',
+          form_submit_text: 'submit'
+        });
+      }
+    }).open(); // call open() on created popup
   }
 
   @HostListener('window:scroll', ['$event'])

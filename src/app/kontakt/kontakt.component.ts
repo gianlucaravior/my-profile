@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { createWidget } from "@typeform/embed";
+import { getAnalytics, logEvent } from "firebase/analytics";
 
 @Component({
   selector: 'app-kontakt',
@@ -16,6 +18,21 @@ export class KontaktComponent {
       hideFooter: true,
       hideHeaders: true,
       disableScroll: true,
+      onStarted: () => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'form_start', {
+          form_name: 'contact',
+          form_destination: 'app-kontakt'
+        });
+      },
+      onSubmit: () => {
+        const analytics = getAnalytics();
+        logEvent(analytics, 'form_submit', {
+          form_name: 'contact',
+          form_destination: 'app-kontakt',
+          form_submit_text: 'submit'
+        });
+      }
     });
   }
 }

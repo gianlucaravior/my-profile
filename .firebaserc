@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "rav-cloud"
+  },
+  "targets": {
+    "rav-cloud": {
+      "hosting": {
+        "ravcloud": [
+          "rav-cloud"
+        ]
+      }
+    }
   }
 }
