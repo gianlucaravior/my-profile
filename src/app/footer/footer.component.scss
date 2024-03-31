@@ -1,3 +1,11 @@
+@import '../../styles.scss';
+
 a:hover {
     color: #fff !important;
+}
+
+@media (max-width: map-get($grid-breakpoints, "md")) {
+    footer {
+        margin-top: 5rem;
+    }
 }
