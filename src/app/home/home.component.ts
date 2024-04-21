@@ -30,7 +30,7 @@ import { getAnalytics, logEvent } from "firebase/analytics";
 export class HomeComponent {
   @ViewChild('devscroll', { static: true }) devscrollElement!: ElementRef;
 
-  words = ['E-Commerce', 'kommunale', 'gemeinnützige'];
+  words = ['Ehrenamtliche', 'Kommunale', 'Gemeinnützige'];
   currentWordIndex = 0;
 
   constructor() {

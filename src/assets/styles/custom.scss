@@ -192,7 +192,7 @@ app-home .ablauf {
     border-top-right-radius: 0;
     margin-left: -10%;
     margin-right: 10%;
-    margin-top: -20%;
+    margin-top: -10%;
     overflow: hidden;
 
     @media (max-width: map-get($grid-breakpoints, "lg")) {
@@ -279,7 +279,7 @@ app-home .ablauf {
 
 app-home div.skills {
   position: relative;
-  top: -5rem;
+  top: -3rem;
   @media (max-width: map-get($grid-breakpoints, "lg")) {
     top: -2rem;
   }
@@ -561,6 +561,11 @@ app-home div.skills {
           width: 75%;
         }
       }
+    }
+
+    &__headline {
+      font-size: 1.3rem;
+      color: $color-white;
     }
   }
 
